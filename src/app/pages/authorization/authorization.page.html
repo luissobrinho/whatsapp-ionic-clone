@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Phone number</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="done()" [disabled]="number.invalid">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="ion-text-center">
+    <p>
+      Please confirm your country code <br> and enter your phone number
+    </p>
+  </ion-text>
+  <ion-list lines="inset">
+    <ion-item detail="true" id="open-countries">
+      <ion-label color="primary">{{ currentCountry().country }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-text class="ion-padding-start ion-padding-end " slot="start">
+        {{ currentCountry().code }}
+      </ion-text>
+      <ion-input
+        [formControl]="number"
+        [maskitoElement]="maskPredicate"
+        [maskito]="phoneMask()"
+        placeholder="phone number"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-action-sheet
+    (didDismiss)="selectCountries($event)"
+    [buttons]="counties()"
+    header="Select your country"
+    trigger="open-countries"
+  ></ion-action-sheet>
+</ion-content>

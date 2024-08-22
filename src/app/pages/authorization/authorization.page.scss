@@ -1,0 +1,32 @@
+:host {
+  ion-header {
+    ion-button.button-disabled {
+      opacity: 1;
+
+      &::part(native) {
+        color: #C7C7CC;
+      }
+    }
+  }
+
+  ion-list {
+    border-width: 0.55px 0 0.55px 0;
+    border-style: solid;
+    border-color: #C7C7CC;
+
+    ion-item:last-child {
+      --inner-border-width: 0;
+      font-size: 27px;
+      font-weight: normal;
+
+      ion-input {
+        --placeholder-color: #C7C7CC;
+        --placeholder-font-weight: lighter;
+        --padding-start: 10px;
+        border-width: 0 0 0 0.55px;
+        border-style: solid;
+        border-color: #C7C7CC;
+      }
+    }
+  }
+}
